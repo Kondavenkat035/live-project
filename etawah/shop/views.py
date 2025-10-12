@@ -4,7 +4,6 @@ from .models import Shop
 
 def home(request):
     return render(request, 'shop/index.html')
-
 def pricing(request):
     return render(request, 'shop/pricing.html')
 
