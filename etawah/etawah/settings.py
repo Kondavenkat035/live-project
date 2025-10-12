@@ -4,7 +4,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-m-b=4f7d%gqt8x&^f6a=%n92g_h4vw%7w_2+05h@ard1irrzap'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'etawah.shop',
