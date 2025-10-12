@@ -7,11 +7,14 @@ SECRET_KEY = 'django-insecure-m-b=4f7d%gqt8x&^f6a=%n92g_h4vw%7w_2+05h@ard1irrzap
 DEBUG = False
 
 ALLOWED_HOSTS = [
+    'etawah.shop',
+    'www.etawah.shop',
     '127.0.0.1',
     'localhost',
     '135.235.228.118',
     'cosmic-centralindia-ns-4187579137fc.trafficmanager.net',
 ]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
