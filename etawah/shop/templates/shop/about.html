@@ -1,469 +1,465 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About etawah.shop - Your Local Business Directory</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a3a6c;
-            --secondary: #e63946;
-            --accent: #457b9d;
-            --light: #f1faee;
-            --dark: #1d3557;
-            --gray: #8d99ae;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}About Etawah.shop{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --primary: #1a3a6c;
+        --secondary: #e63946;
+        --accent: #457b9d;
+        --light: #f1faee;
+        --dark: #1d3557;
+        --gray: #8d99ae;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .header {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        padding: 1.5rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.8rem;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 0.5rem;
+    }
+
+    .domain {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 1rem;
+    }
+
+    .location {
+        background-color: rgba(255, 255, 255, 0.15);
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-size: 1.1rem;
+    }
+
+    .search-bar {
+        max-width: 600px;
+        margin: 1.5rem auto 0;
+    }
+
+    .search-input {
+        border: none;
+        border-radius: 30px;
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .btn-list {
+        background-color: var(--secondary);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 0.6rem 1.8rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-list:hover {
+        background-color: #c1121f;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--primary);
+        margin-bottom: 2.5rem;
+        position: relative;
+        padding-bottom: 1rem;
+    }
+
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+        border-radius: 2px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    }
+
+    .card-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+
+    .card-icon i {
+        font-size: 28px;
+        color: white;
+    }
+
+    .card-title {
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+
+    .mission-vision {
+        background-color: white;
+        border-radius: 15px;
+        padding: 2.5rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .mission-box,
+    .vision-box {
+        background: linear-gradient(135deg, rgba(26, 58, 108, 0.05), rgba(69, 123, 157, 0.05));
+        padding: 1.8rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+    }
+
+    .mission-title,
+    .vision-title {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .mission-title i,
+    .vision-title i {
+        margin-right: 12px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .network-info {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        padding: 2.5rem;
+        border-radius: 15px;
+        margin-top: 2rem;
+    }
+
+    .footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 3rem 0 1.5rem;
+    }
+
+    .footer-title {
+        color: white;
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+        position: relative;
+        padding-bottom: 0.8rem;
+    }
+
+    .footer-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--secondary);
+    }
+
+    .footer-links a {
+        color: #e9ecef;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.6rem;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: var(--secondary);
+        padding-left: 5px;
+    }
+
+    .copyright {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        font-size: 0.9rem;
+        color: #a9a9a9;
+    }
+
+    .disclaimer {
+        font-size: 0.85rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        color: #a9a9a9;
+    }
+
+    .highlight {
+        background: linear-gradient(120deg, rgba(230, 57, 70, 0.15), transparent);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-weight: 600;
+    }
+
+    .btn-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
         }
-        
-        .domain {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 1rem;
-        }
-        
-        .location {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .search-bar {
-            max-width: 600px;
-            margin: 1.5rem auto 0;
-        }
-        
-        .search-input {
-            border: none;
-            border-radius: 30px;
-            padding: 0.8rem 1.5rem;
-            width: 100%;
-            font-size: 1.1rem;
-        }
-        
-        .btn-list {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            padding: 0.6rem 1.8rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-list:hover {
-            background-color: #c1121f;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
+
         .section {
-            padding: 4rem 0;
+            padding: 2.5rem 0;
         }
-        
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary);
-            margin-bottom: 2.5rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-        
-        .card {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-        }
-        
-        .card-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-        }
-        
-        .card-icon i {
-            font-size: 28px;
-            color: white;
-        }
-        
-        .card-title {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
+
         .mission-vision {
-            background-color: white;
-            border-radius: 15px;
-            padding: 2.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        
-        .mission-box, .vision-box {
-            background: linear-gradient(135deg, rgba(26, 58, 108, 0.05), rgba(69, 123, 157, 0.05));
             padding: 1.8rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
         }
-        
-        .mission-title, .vision-title {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .mission-title i, .vision-title i {
-            margin-right: 12px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-        
-        .network-info {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-top: 2rem;
-        }
-        
-        .footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-        
-        .footer-title {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-        }
-        
-        .footer-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-        }
-        
-        .footer-links a {
-            color: #e9ecef;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.6rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-        
-        .copyright {
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-            color: #a9a9a9;
-        }
-        
-        .disclaimer {
-            font-size: 0.85rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #a9a9a9;
-        }
-        
-        .highlight {
-            background: linear-gradient(120deg, rgba(230, 57, 70, 0.15), transparent);
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        
-        .btn-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .btn-link:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.2rem;
-            }
-            
-            .section {
-                padding: 2.5rem 0;
-            }
-            
-            .mission-vision {
-                padding: 1.8rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="container">
-            <div class="logo-container">
-                <div class="logo">ETAWAH SHOP</div>
-                <div class="domain">www.etawah.shop</div>
-                <div class="location">Etawah (Uttar Pradesh)</div>
-            </div>
-            
-            <div class="search-bar">
-                <input type="text" class="search-input" placeholder="Search in Etawah (Uttar Pradesh)">
-            </div>
-            
-            <div class="text-center">
-                <button class="btn btn-list">
-                    <i class="fas fa-plus-circle me-2"></i>List Your Business Free
-                </button>
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<header class="header">
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">ETAWAH SHOP</div>
+            <div class="domain">www.etawah.shop</div>
+            <div class="location">Etawah (Uttar Pradesh)</div>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search in Etawah (Uttar Pradesh)">
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-list">
+                <i class="fas fa-plus-circle me-2"></i>List Your Business Free
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+    <!-- About Section -->
+    <section class="section">
+        <h2 class="section-title">About www.etawah.shop</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card p-4">
+                    <p class="mb-3">
+                        <span class="highlight">www.etawah.shop</span> is a local business directory & information portal for Etawah. 
+                        We help users connect with local businesses in Etawah through verified information about each business like 
+                        phone numbers, contact details, products and services offered etc.
+                    </p>
+                    <p>
+                        Our platform serves as a bridge between Etawah residents and local businesses, ensuring accurate and up-to-date 
+                        information is readily available to everyone in the community.
+                    </p>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- About Section -->
-        <section class="section">
-            <h2 class="section-title">About www.etawah.shop</h2>
+    <!-- Benefits Section -->
+    <section class="section bg-light">
+        <h2 class="section-title">Benefits for Local Businesses in Etawah</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-4">
+                    <div class="card-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3 class="card-title">Online Presence</h3>
+                    <p>Create a strong online presence and connect with new customers to grow your business.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-4">
+                    <div class="card-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 class="card-title">Free Business Listing</h3>
+                    <p>Create a free business listing, profile, and professional website in minutes.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <div class="card p-4">
+                    <div class="card-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="card-title">Targeted Advertising</h3>
+                    <p>Promote your brand through our various online channels with highly targeted advertising options.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="#" class="btn-link">Click here to know more <i class="fas fa-arrow-right ms-1"></i></a>
+        </div>
+    </section>
+
+    <!-- Other Services Section -->
+    <section class="section">
+        <h2 class="section-title">Other Services on www.etawah.shop</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card p-4">
+                    <p>
+                        We also offer a comprehensive <span class="highlight">Shops Dashboard</span> which includes various interesting 
+                        Shops in Etawah and other local attractions, events, and information about Etawah (Comming Soon).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Section -->
+    <section class="section">
+        <div class="network-info text-center">
+            <h3 class="mb-3">A Fresh of  Network</h3>
+            <p>www.etawah.shop is a part of the etawah.shop Network - India's largest online network of 475+ city based portals.</p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section">
+        <div class="mission-vision">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="card p-4">
-                        <p class="mb-3">
-                            <span class="highlight">www.etawah.shop</span> is a local business directory & information portal for Etawah. 
-                            We help users connect with local businesses in Etawah through verified information about each business like 
-                            phone numbers, contact details, products and services offered etc.
-                        </p>
-                        <p>
-                            Our platform serves as a bridge between Etawah residents and local businesses, ensuring accurate and up-to-date 
-                            information is readily available to everyone in the community.
-                        </p>
+                <div class="col-md-6">
+                    <div class="mission-box">
+                        <h4 class="mission-title">
+                            <i class="fas fa-bullseye"></i> Our Mission
+                        </h4>
+                        <p>Providing an easy-to-use platform for customers & businesses of Etawah to connect with each other.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="vision-box">
+                        <h4 class="vision-title">
+                            <i class="fas fa-eye"></i> Our Vision
+                        </h4>
+                        <p>Becoming the one-stop platform for people to get every bit of information about Etawah.</p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Benefits Section -->
-        <section class="section bg-light">
-            <h2 class="section-title">Benefits for Local Businesses in Etawah</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card p-4">
-                        <div class="card-icon">
-                            <i class="fas fa-globe-asia"></i>
-                        </div>
-                        <h3 class="card-title">Online Presence</h3>
-                        <p>Create a strong online presence and connect with new customers to grow your business.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card p-4">
-                        <div class="card-icon">
-                            <i class="fas fa-store"></i>
-                        </div>
-                        <h3 class="card-title">Free Business Listing</h3>
-                        <p>Create a free business listing, profile, and professional website in minutes.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mx-auto">
-                    <div class="card p-4">
-                        <div class="card-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <h3 class="card-title">Targeted Advertising</h3>
-                        <p>Promote your brand through our various online channels with highly targeted advertising options.</p>
-                    </div>
-                </div>
-            </div>
             <div class="text-center mt-4">
-                <a href="#" class="btn-link">Click here to know more <i class="fas fa-arrow-right ms-1"></i></a>
-            </div>
-        </section>
-
-        <!-- Other Services Section -->
-        <section class="section">
-            <h2 class="section-title">Other Services on www.etawah.shop</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="card p-4">
-                        <p>
-                            We also offer a comprehensive <span class="highlight">Shops Dashboard</span> which includes various interesting 
-                            Shops in Etawah and other local attractions, events, and information about Etawah (Comming Soon).
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Network Section -->
-        <section class="section">
-            <div class="network-info text-center">
-                <h3 class="mb-3">A Fresh of  Network</h3>
-                <p>www.etawah.shop is a part of the etawah.shop Network - India's largest online network of 475+ city based portals.</p>
-            </div>
-        </section>
-
-        <!-- Mission & Vision -->
-        <section class="section">
-            <div class="mission-vision">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mission-box">
-                            <h4 class="mission-title">
-                                <i class="fas fa-bullseye"></i> Our Mission
-                            </h4>
-                            <p>Providing an easy-to-use platform for customers & businesses of Etawah to connect with each other.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="vision-box">
-                            <h4 class="vision-title">
-                                <i class="fas fa-eye"></i> Our Vision
-                            </h4>
-                            <p>Becoming the one-stop platform for people to get every bit of information about Etawah.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <p>To know more about our company - <span class="highlight">etawah.shop</span>, 
-                    please visit our corporate website - <a href="http://www.etawah.shop" class="text-white fw-bold">www.etawah.shop</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <h5 class="footer-title">Important Links</h5>
-                    <div class="footer-links">
-                        <a href="#"><i class="fas fa-sign-in-alt me-2"></i>Login / Register</a>
-                        <a href="#"><i class="fas fa-book me-2"></i>Etawah Directory</a>
-                        <a href="#"><i class="fas fa-map-marked-alt me-2"></i>Etawah Guide</a>
-                        <a href="#"><i class="fas fa-hands-helping me-2"></i>Help your Community</a>
-                        <a href="#"><i class="fas fa-share-alt me-2"></i>Share</a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <h5 class="footer-title">Business Links</h5>
-                    <div class="footer-links">
-                        <a href="#"><i class="fas fa-plus-circle me-2"></i>List Your Business</a>
-                        <a href="#"><i class="fas fa-ad me-2"></i>Advertise With Us</a>
-                        <a href="#"><i class="fas fa-phone me-2"></i>Contact Us</a>
-                        <a href="#"><i class="fas fa-info-circle me-2"></i>About Us</a>
-                        <a href="#"><i class="fas fa-handshake me-2"></i>Become our Sales Partner</a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <h5 class="footer-title"></h5>
-                    <div class="footer-links">
-                        <a href="#"><i class="fas fa-network-wired me-2"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <h5 class="footer-title">Legal</h5>
-                    <div class="footer-links">
-                        <a href="#"><i class="fas fa-shield-alt me-2"></i>Privacy Policy</a>
-                        <a href="#"><i class="fas fa-file-contract me-2"></i>Terms of Service</a>
-                        <a href="#"><i class="fas fa-exclamation-triangle me-2"></i>Infringement Policy</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="copyright text-center">
-                <p>Copyright</p>
-            </div>
-            
-            <div class="disclaimer text-center">
-                <p>Third-party brand trademarks and logos appearing here are owned by the respective third parties and are not affiliated with www.etawah.shop . View our complete Disclaimer.</p>
+                <p>To know more about our company - <span class="highlight">etawah.shop</span>, 
+                please visit our corporate website - <a href="http://www.etawah.shop" class="text-white fw-bold">www.etawah.shop</a></p>
             </div>
         </div>
-    </footer>
+    </section>
+</main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="footer-title">Important Links</h5>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-sign-in-alt me-2"></i>Login / Register</a>
+                    <a href="#"><i class="fas fa-book me-2"></i>Etawah Directory</a>
+                    <a href="#"><i class="fas fa-map-marked-alt me-2"></i>Etawah Guide</a>
+                    <a href="#"><i class="fas fa-hands-helping me-2"></i>Help your Community</a>
+                    <a href="#"><i class="fas fa-share-alt me-2"></i>Share</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="footer-title">Business Links</h5>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-plus-circle me-2"></i>List Your Business</a>
+                    <a href="#"><i class="fas fa-ad me-2"></i>Advertise With Us</a>
+                    <a href="#"><i class="fas fa-phone me-2"></i>Contact Us</a>
+                    <a href="#"><i class="fas fa-info-circle me-2"></i>About Us</a>
+                    <a href="#"><i class="fas fa-handshake me-2"></i>Become our Sales Partner</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="footer-title"></h5>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-network-wired me-2"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <h5 class="footer-title">Legal</h5>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-shield-alt me-2"></i>Privacy Policy</a>
+                    <a href="#"><i class="fas fa-file-contract me-2"></i>Terms of Service</a>
+                    <a href="#"><i class="fas fa-exclamation-triangle me-2"></i>Infringement Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright text-center">
+            <p>Copyright</p>
+        </div>
+
+        <div class="disclaimer text-center">
+            <p>Third-party brand trademarks and logos appearing here are owned by the respective third parties and are not affiliated with www.etawah.shop . View our complete Disclaimer.</p>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
