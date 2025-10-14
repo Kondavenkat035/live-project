@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ===============================
     if (typeof AOS !== "undefined") {
         AOS.init({
-            duration: 700,
+            duration: 300,
             once: true,
             easing: 'ease-out-cubic'
         });
